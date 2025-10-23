@@ -1,107 +1,192 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofrenda de Día de Muertos</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ofrenda de Día de Muertos</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #ffcb05, #ff5722);
+  font-family: 'MedievalSharp', cursive;
+  overflow-x: hidden;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: #4a0000;
+  text-shadow: 2px 2px 5px #ffa500;
+  margin: 20px 0;
+}
+
+#petalos {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.petalo {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at center, #fbb034 30%, #ffdd00 70%);
+  border-radius: 45% 60% 30% 45% / 60% 30% 45% 60%;
+  opacity: 0.9;
+  animation: caer 5s linear forwards;
+  filter: drop-shadow(0 0 3px #cc6600);
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.ofrenda {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fffbee;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 0 20px 5px #fca31199;
+  position: relative;
+  z-index: 1;
+}
+
+.piso {
+  margin: 15px 0;
+  border-top: 3px solid #ffb300;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.vela {
+  width: 20px;
+  height: 70px;
+  background: linear-gradient(to top, #fffacd, #fad02c);
+  border-radius: 10px;
+  position: relative;
+  animation: viento 4s ease-in-out infinite alternate;
+  box-shadow: 0 0 10px 3px #fca311;
+}
+
+.llama {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+  width: 15px;
+  height: 30px;
+  background: radial-gradient(circle at 40% 50%, #ffdb00 70%, #ba6100 90%);
+  border-radius: 30% 70% 50% 50% / 60% 60% 40% 40%;
+  animation: parpadear 1.5s infinite;
+  filter: drop-shadow(0 0 5px #ffdb00);
+}
+
+@keyframes viento {
+  0% {transform: translateX(0);} 
+  100% {transform: translateX(5px);}
+}
+
+@keyframes parpadear {
+  0%, 100% {opacity: 1;}
+  50% {opacity: 0.7;}
+}
+
+.foto, .comida, .juguete {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #ffb300;
+  object-fit: cover;
+}
+
+.foto {
+  border: 5px solid #d14124;
+}
+
+.comida {
+  border: 5px solid #f58220;
+}
+
+.juguete {
+  border: 5px solid #c46210;
+}
+
+.detalles {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+</style>
 </head>
 <body>
-    <h1>💀 Ofrenda de Día de Muertos </h1>
-    <p>Bienvenidos a la celebración del Día de Muertos. Aquí encontrarás una hermosa ofrenda dedicada a nuestros seres queridos que han partido.</p>
-  
-    <!-- NIVEL 1 -->
-    <table class="nivel1">
-        <tr>
-            <td></td>
-            <td><img src="Untitled.1.png" alt="Velas"><br>Velas</td>
-            <td></td>
-        </tr>
-    </table>
+<h1>💀🕸🕷🦇🎃Ofrenda de Día de Muertos🎃🦇🕷🕸💀</h1>
+<div id="petalos"></div>
+<div class="ofrenda" style="display:none;">
+  <div class="piso">
+    <img src="https://i.ibb.co/ZYW3VTp/pan-de-muerto.png" alt="Pan de muerto" class="comida"/>
+    <img src="https://i.ibb.co/0s3pdnc/tamal.png" alt="Tamales" class="comida"/>
+    <img src="https://i.ibb.co/7ybHT3s/atole.png" alt="Atole" class="comida"/>
+  </div>
+  <div class="piso">
+    <img src="https://i.ibb.co/8g8NGXF/tacos.png" alt="Tacos" class="comida"/>
+    <img src="https://i.ibb.co/SvKb5y9/enchiladas.png" alt="Enchiladas" class="comida"/>
+    <img src="https://i.ibb.co/n7D2XX7/vaso-agua.png" alt="Vaso de agua" class="comida"/>
+  </div>
+  <div class="piso">
+    <img src="https://i.ibb.co/df0LNWV/foto1.png" alt="Foto persona" class="foto"/>
+    <img src="https://i.ibb.co/df0LNWV/foto1.png" alt="Foto mascota" class="foto"/>
+  </div>
+  <div class="detalles">
+    <div class="vela">
+      <div class="llama"></div>
+    </div>
+    <div class="vela">
+      <div class="llama"></div>
+    </div>
+    <div class="vela">
+      <div class="llama"></div>
+    </div>
+  </div>
+</div>
 
-    <!-- NIVEL 2 -->
-    <table class="nivel2">
-        <tr>
-            <td><img src="Untitled.2.png" alt="Flor de cempasúchil"><br>Flores</td>
-            <td><img src="Untitled.3.png" alt="Foto"><br>Fotografía</td>
-            <td><img src="Untitled.4.png" alt="Calaveras"><br>Calaveritas</td>
-        </tr>
-    </table>
+<script>
+function crearPetalos(num) {
+  const petalosContainer = document.getElementById('petalos');
+  for (let i = 0; i < num; i++) {
+    const petalo = document.createElement('div');
+    petalo.classList.add('petalo');
+    petalo.style.left = Math.random() * 100 + 'vw';
+    petalo.style.animationDelay = (Math.random() * 5) + 's';
+    petalo.style.width = 30 + Math.random() * 20 + 'px';
+    petalo.style.height = 30 + Math.random() * 20 + 'px';
+    petalo.style.animationDuration = 4 + Math.random() * 2 + 's';
+    petalosContainer.appendChild(petalo);
+  }
+}
 
-    <!-- NIVEL 3 -->
-    <table class="nivel3">
-        <tr>
-            <td><img src="Untitled.5.png" alt="Pan de muerto"><br>Pan de muerto</td>
-            <td><img src="Untitled.6.png" alt="Comida"><br>Comida</td>
-            <td><img src="Untitled.7.png" alt="Bebida"><br>Bebida</td>
-        </tr>
-    </table>
-    <!-- NIVEL 4 -->
-    <table class="nivel4">
-        <tr>
-            <td><img src="Untitled.8.png" alt="Papel picado"><br>Papel picado</td>
-            <td><img src="Untitled.9.png" alt="Música"><br>Música</td>
-            <td><img src="Untitled.10.png" alt="Incienso"><br>Incienso</td>
-            <td><img src="Untitled.11.png" alt="su mujer"><br> mujer</td>
-        </tr>
-    </table>
-
-
-
-
-
-
-
-
-
-
-
-
-    <p>“Recordar a los que amamos es hacerlos vivir para siempre” </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+crearPetalos(40);
+setTimeout(() => {
+  document.getElementById('petalos').style.display = 'none';
+  document.querySelector('.ofrenda').style.display = 'block';
+}, 4000);
+</script>
 
 </body>
 </html>
