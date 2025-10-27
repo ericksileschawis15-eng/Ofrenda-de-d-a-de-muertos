@@ -317,3 +317,234 @@ setTimeout(() => {
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💀🎉 Ofrenda de Día de Muertos 🎉💀</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at bottom, #2b1d0e 0%, #000 100%);
+  font-family: 'MedievalSharp', cursive;
+  color: #fffbe6;
+  overflow-x: hidden;
+}
+
+/* 🔸 Título */
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 30px 0;
+  color: #ffcc00;
+  text-shadow: 0 0 20px #ff9100, 0 0 40px #ff6f00;
+  animation: aparecer 2s ease-out;
+}
+
+/* 🔸 Fondo pétalos */
+#petalos {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.petalo {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at center, #fbb034 30%, #ffdd00 70%);
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: caer 5s linear forwards;
+  filter: drop-shadow(0 0 5px #ff9100);
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* 🔸 Cuadro de la ofrenda */
+.ofrenda {
+  display: none;
+  max-width: 850px;
+  margin: 30px auto;
+  padding: 20px;
+  background: linear-gradient(to bottom right, #fff8dc, #ffd180);
+  border: 8px double #8b0000;
+  border-radius: 25px;
+  box-shadow: 0 0 30px 10px #ff6f00cc;
+  animation: aparecer 2s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+/* 🔸 Niveles del altar */
+.piso {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  background: rgba(255, 204, 0, 0.15);
+  border-top: 5px solid #ffb300;
+  border-bottom: 5px solid #ffb300;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 20px #ff9100;
+}
+
+/* 🔸 Imágenes */
+.comida, .foto {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.comida:hover, .foto:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #ffb74d;
+}
+
+.foto { border: 4px solid #c62828; background: #fff; }
+.comida { border: 4px solid #ff8f00; }
+
+/* 🔸 Velas */
+.detalles {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+}
+
+.vela {
+  width: 25px;
+  height: 80px;
+  background: linear-gradient(to top, #fff8dc, #ffe082);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 20px #ffb300;
+}
+
+.llama {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 28px;
+  background: radial-gradient(circle at 40% 40%, #ffff00, #ff9100, #e65100);
+  border-radius: 50% 50% 50% 50%;
+  animation: flame 1s infinite alternate ease-in-out;
+  box-shadow: 0 0 20px #ffb74d;
+}
+
+@keyframes flame {
+  from { transform: scale(1) translateY(0); opacity: 0.9; }
+  to { transform: scale(1.2) translateY(-3px); opacity: 1; }
+}
+
+/* 🔸 Decoraciones laterales */
+.ofrenda::before, .ofrenda::after {
+  content: "🕯️💐🦋";
+  position: absolute;
+  font-size: 2rem;
+  top: 10px;
+  color: #ffb300;
+  text-shadow: 0 0 10px #ff6f00;
+}
+.ofrenda::before { left: 15px; }
+.ofrenda::after { right: 15px; }
+
+</style>
+</head>
+
+<body>
+<h1>💀🕯️ Ofrenda de Día de Muertos 🕯️💀</h1>
+<div id="petalos"></div>
+
+<div class="ofrenda">
+  <!-- Primer nivel -->
+  <div class="piso">
+    <img src="Untitled.1.png" alt="Pan de muerto" class="comida"/>
+    <img src="Untitled.2.png" alt="Tamales" class="comida"/>
+    <img src="Untitled.3.png" alt="Atole" class="comida"/>
+  </div>
+  <!-- Segundo nivel -->
+  <div class="piso">
+    <img src="Untitled.4.png" alt="Tacos" class="comida"/>
+    <img src="Untitled.5.png" alt="Enchiladas" class="comida"/>
+    <img src="Untitled.6.png" alt="Vaso de agua" class="comida"/>
+  </div>
+  <!-- Tercer nivel (fotos) -->
+  <div class="piso">
+    <img src="Untitled.7.png" alt="Foto persona" class="foto"/>
+    <img src="Untitled.8.png" alt="Foto mascota" class="foto"/>
+  </div>
+
+  <!-- Velas -->
+  <div class="detalles">
+    <div class="vela"><div class="llama"></div></div>
+    <div class="vela"><div class="llama"></div></div>
+    <div class="vela"><div class="llama"></div></div>
+  </div>
+</div>
+
+<script>
+function crearPetalos(num) {
+  const petalosContainer = document.getElementById('petalos');
+  for (let i = 0; i < num; i++) {
+    const petalo = document.createElement('div');
+    petalo.classList.add('petalo');
+    petalo.style.left = Math.random() * 100 + 'vw';
+    petalo.style.animationDelay = (Math.random() * 4) + 's';
+    petalo.style.width = 20 + Math.random() * 20 + 'px';
+    petalo.style.height = 20 + Math.random() * 20 + 'px';
+    petalo.style.animationDuration = 3 + Math.random() * 3 + 's';
+    petalosContainer.appendChild(petalo);
+  }
+}
+
+crearPetalos(50);
+
+// Mostrar la ofrenda después de los pétalos
+setTimeout(() => {
+  document.getElementById('petalos').style.display = 'none';
+  document.querySelector('.ofrenda').style.display = 'block';
+}, 4000);
+</script>
+</body>
+</html>
